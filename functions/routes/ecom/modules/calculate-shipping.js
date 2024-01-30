@@ -336,7 +336,7 @@ exports.post = async ({ appSdk }, req, res) => {
       label,
       carrier: 'Correios',
       // https://informederendimentos.com/consulta/cnpj-correios/
-      carrier_doc_number: '34704060000107',
+      carrier_doc_number: '34028316000103',
       service_code: coProduto,
       service_name: serviceName || label,
       shipping_line: shippingLine
