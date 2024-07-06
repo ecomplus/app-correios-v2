@@ -38,8 +38,8 @@ const calculate = async ({
   }
   if (correiosParams.vlDeclarado) {
     const value = Number(correiosParams.vlDeclarado)
-    if (value < 25) {
-      correiosParams.vlDeclarado = '25'
+    if (value < 25.63) {
+      correiosParams.vlDeclarado = '26'
     } else if (value > 10000) {
       correiosParams.vlDeclarado = '10000'
     }
@@ -90,9 +90,6 @@ const calculate = async ({
       }
       return _params
     })
-    if (storeId == 51504) {
-      console.log('log body calc', JSON.stringify(correiosParams))
-    }
   return Promise.all([
     correios.post('/preco/v1/nacional', {
       idLote: '1',
