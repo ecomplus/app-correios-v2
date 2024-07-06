@@ -178,25 +178,15 @@ exports.post = async ({ appSdk }, req, res) => {
   })
 
   let correiosResult
-  if (storeId == 51466) {
-      console.log('send item', JSON.stringify({
-          psObjeto: pkg.weight.value,
-          comprimento: pkg.dimensions.length.value,
-          altura: pkg.dimensions.height.value,
-          largura: pkg.dimensions.width.value,
-          vlDeclarado,
-          servicosAdicionais
-        }))
-  }
   try {
     const { data } = await calculate({
       correiosParams: {
         cepOrigem,
         cepDestino,
-        psObjeto: pkg.weight.value,
-        comprimento: pkg.dimensions.length.value,
-        altura: pkg.dimensions.height.value,
-        largura: pkg.dimensions.width.value,
+        psObjeto: pkg.weight.value || 500,
+        comprimento: pkg.dimensions.length.value || 16,
+        altura: pkg.dimensions.height.value || 2,
+        largura: pkg.dimensions.width.value || 11,
         vlDeclarado,
         servicosAdicionais
       },
