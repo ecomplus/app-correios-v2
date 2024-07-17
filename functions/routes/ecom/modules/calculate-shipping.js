@@ -183,10 +183,10 @@ exports.post = async ({ appSdk }, req, res) => {
       correiosParams: {
         cepOrigem,
         cepDestino,
-        psObjeto: (pkg.weight.value > 0 ? pkg.weight.value : 500),
-        comprimento: (pkg.dimensions.length.value > 0 ? pkg.dimensions.length.value : 16),
-        altura: (pkg.dimensions.length.value > 0 ? pkg.dimensions.length.value : 2),
-        largura: (pkg.dimensions.length.value > 0 ? pkg.dimensions.length.value : 11),
+        psObjeto: pkg.weight.value || 500,
+        comprimento: pkg.dimensions.length.value || 16,
+        altura: pkg.dimensions.height.value || 2,
+        largura: pkg.dimensions.width.value || 11,
         vlDeclarado,
         servicosAdicionais
       },
